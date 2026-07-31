@@ -29,53 +29,55 @@
       "href": "https://www.zenda.ai/dashboard"
     }
   },
-  "navigation": [
-    {
-      "group": "Começar",
-      "pages": ["introduction", "primeiros-passos"]
-    },
-    {
-      "group": "Agente",
-      "pages": [
-        "guias/playground",
-        "guias/configuracoes",
-        "guias/analytics"
-      ]
-    },
-    {
-      "group": "Conhecimento",
-      "pages": ["guias/fontes/overview"]
-    },
-    {
-      "group": "Ações",
-      "pages": [
-        "guias/acoes/overview",
-        "guias/acoes/leads",
-        "guias/acoes/cta",
-        "guias/acoes/shopify"
-      ]
-    },
-    {
-      "group": "Publicar",
-      "pages": [
-        "guias/publicar/overview",
-        "guias/publicar/widget",
-        "guias/publicar/help-page",
-        "guias/publicar/whatsapp"
-      ]
-    },
-    {
-      "group": "Atendimento",
-      "pages": ["guias/activity/overview"]
-    },
-    {
-      "group": "Conta",
-      "pages": [
-        "guias/conta/workspace",
-        "guias/conta/plano-e-creditos"
-      ]
-    }
-  ],
+  "navigation": {
+    "groups": [
+      {
+        "group": "Começar",
+        "pages": ["introduction", "primeiros-passos"]
+      },
+      {
+        "group": "Agente",
+        "pages": [
+          "guias/playground",
+          "guias/configuracoes",
+          "guias/analytics"
+        ]
+      },
+      {
+        "group": "Conhecimento",
+        "pages": ["guias/fontes/overview"]
+      },
+      {
+        "group": "Ações",
+        "pages": [
+          "guias/acoes/overview",
+          "guias/acoes/leads",
+          "guias/acoes/cta",
+          "guias/acoes/shopify"
+        ]
+      },
+      {
+        "group": "Publicar",
+        "pages": [
+          "guias/publicar/overview",
+          "guias/publicar/widget",
+          "guias/publicar/help-page",
+          "guias/publicar/whatsapp"
+        ]
+      },
+      {
+        "group": "Atendimento",
+        "pages": ["guias/activity/overview"]
+      },
+      {
+        "group": "Conta",
+        "pages": [
+          "guias/conta/workspace",
+          "guias/conta/plano-e-creditos"
+        ]
+      }
+    ]
+  },
   "footer": {
     "socials": {
       "website": "https://www.zenda.ai"
