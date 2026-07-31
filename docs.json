@@ -16,17 +16,17 @@
     "links": [
       {
         "label": "Site",
-        "href": "https://www.zenda.ai"
+        "href": "https://zenda-chat.vercel.app"
       },
       {
         "label": "Preços",
-        "href": "https://www.zenda.ai/pricing"
+        "href": "https://zenda-chat.vercel.app/pricing"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://www.zenda.ai/dashboard"
+      "href": "https://zenda-chat.vercel.app/dashboard"
     }
   },
   "navigation": {
@@ -80,7 +80,7 @@
   },
   "footer": {
     "socials": {
-      "website": "https://www.zenda.ai"
+      "website": "https://zenda-chat.vercel.app"
     }
   }
 }
