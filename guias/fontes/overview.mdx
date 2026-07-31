@@ -1,0 +1,53 @@
+---
+title: Fontes de treinamento
+description: Como o agente aprende com site, documentos, textos e FAQs.
+---
+
+As **fontes** alimentam o RAG (busca no conhecimento) do agente. Antes de responder, o agente consulta trechos relevantes das fontes indexadas.
+
+Acesse em **Fontes de treinamento** no menu do agente.
+
+## Tipos de fonte
+
+<CardGroup cols={2}>
+  <Card title="Website" icon="globe">
+    Crawl de páginas do seu site (políticas, sobre, FAQ publicada).
+  </Card>
+  <Card title="Documento" icon="file">
+    Upload de PDF ou arquivo suportado (manual de trocas, catálogo).
+  </Card>
+  <Card title="Texto" icon="align-left">
+    Conteúdo colado diretamente (prazos, formas de pagamento).
+  </Card>
+  <Card title="FAQ" icon="circle-question">
+    Pares pergunta/resposta estruturados.
+  </Card>
+</CardGroup>
+
+## Adicionar e editar
+
+1. Clique em **Adicionar fonte** e escolha o tipo.
+2. Preencha nome, URL (website) ou conteúdo.
+3. Aguarde a indexação — o status aparece na lista.
+4. Para atualizar conteúdo, use **Editar** ou **Retreinar** na fonte.
+
+## Limites por plano
+
+Cada plano define:
+
+- **Tamanho total** da base por agente (MB).
+- **Páginas de crawl** por fonte website.
+- Recursos avançados (rerank, multi-query) em planos Growth+.
+
+Consulte [Plano e créditos](/guias/conta/plano-e-creditos) ou a página de [preços](https://www.zenda.ai/pricing).
+
+## Boas práticas
+
+- Priorize páginas estáveis: política de troca, frete, FAQ oficial.
+- Evite duplicar o mesmo conteúdo em texto e website — pode confundir o ranking.
+- Após mudar o site, **retreine** a fonte website para refletir páginas novas.
+- Para lojas Shopify, políticas vêm das fontes; **produtos e pedidos** vêm da ação Shopify, não do crawl.
+
+<Tip>
+  Teste no Playground perguntas que seus clientes fazem de verdade. Se a resposta falhar, adicione ou ajuste a fonte correspondente antes de mudar o prompt.
+</Tip>

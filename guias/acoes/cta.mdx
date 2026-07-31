@@ -1,0 +1,32 @@
+---
+title: Botão CTA
+description: Injete um botão clicável quando palavras-chave aparecem na conversa.
+---
+
+O **Botão CTA** exibe um link ou botão na conversa quando o visitante menciona **palavras-chave** que você definiu.
+
+## Casos de uso
+
+- *"Falar no WhatsApp"* → botão com link `wa.me/...`
+- *"Ver coleção"* → URL da loja
+- *"Agendar demonstração"* → link externo
+
+## Configuração
+
+1. **Ações** → **Botão CTA** → **Configurar**.
+2. Ative a ação.
+3. Defina:
+   - **Palavras-chave** — termos que disparam o botão (ex.: `whatsapp`, `falar com vendas`).
+   - **Texto do botão** — rótulo visível.
+   - **URL** — destino ao clicar.
+4. Salve e teste no Playground digitando uma das palavras-chave.
+
+## Comportamento
+
+- O agente pode responder normalmente **e** mostrar o botão na mesma mensagem.
+- No widget, o botão é clicável no HTML do chat.
+- No WhatsApp, o formato depende das capacidades do canal (link em texto ou botão interativo quando suportado).
+
+<Warning>
+  Use URLs com `https://`. Links quebrados prejudicam a experiência e a confiança do visitante.
+</Warning>

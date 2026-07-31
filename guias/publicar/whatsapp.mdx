@@ -1,0 +1,153 @@
+---
+title: WhatsApp (Meta)
+description: Conecte WhatsApp Business via API oficial da Meta.
+---
+
+Guia para configurar o app na Meta, apontar o webhook para o Zenda e ativar o canal no dashboard.
+
+**Tempo estimado:** 15–25 minutos.
+
+<Warning>
+  **Pré-requisitos:** conta [Meta Business](https://business.facebook.com), número que **não** esteja ativo no app WhatsApp ou WhatsApp Business no celular, e acesso de administrador ao deploy do Zenda (variáveis `META_WHATSAPP_*` no backend).
+</Warning>
+
+## O que anotar antes de começar
+
+- **Phone Number ID** — ID numérico do número na Meta
+- **Access Token** permanente — usuário do sistema (`EAAG…`)
+- **Verify Token** — mesmo valor no Meta e no Zenda
+- **App Secret** — recomendado em produção (assinatura do webhook)
+
+---
+
+## 1. Criar app na Meta for Developers
+
+1. Acesse [developers.facebook.com](https://developers.facebook.com) e faça login.
+2. **Meus Apps → Criar app** → tipo **Business** (não Consumer).
+3. Nome do app, e-mail e vincule à Meta Business Account.
+
+---
+
+## 2. Adicionar produto WhatsApp
+
+1. No app → **Adicionar produto** → **WhatsApp** → **Configurar**.
+2. A Meta cria um WABA de teste e um número de teste para validar o fluxo.
+3. Menu lateral: **WhatsApp → Configuração da API**. Anote o **ID do número de telefone** (Phone Number ID).
+
+<Info>
+  **Modo desenvolvimento:** só números cadastrados como testadores no app Meta conseguem conversar até você publicar o app.
+</Info>
+
+---
+
+## 3. Registrar seu número (produção)
+
+1. Em **WhatsApp → Configuração da API** → **Adicionar número de telefone**.
+2. Nome de exibição, número internacional (ex.: `+5511999999999`) e verificação por SMS ou voz.
+3. Após verificar, copie o **Phone Number ID** (ex.: `734676046395100`).
+
+<Warning>
+  Se o número ainda estiver no WhatsApp do celular, exclua a conta no app (Configurações → Conta → Excluir conta) antes de registrar na Cloud API. O número em si não é apagado.
+</Warning>
+
+---
+
+## 4. Token permanente (usuário do sistema)
+
+Tokens temporários do painel expiram em horas. Em produção use um **usuário do sistema**:
+
+1. [Meta Business Suite → Usuários do sistema](https://business.facebook.com/settings/system-users)
+2. **Adicionar** → nome (ex.: `zenda-bot`) → função **Administrador**.
+3. **Adicionar ativos** → Apps → seu app → **Controle total**.
+4. **Gerar novo token** → marque `whatsapp_business_messaging` e `whatsapp_business_management` → copie o token (`EAAG…`).
+
+<Warning>
+  Trate o token como senha. Cole apenas no Zenda (Publicar → WhatsApp). Nunca commite em repositório público.
+</Warning>
+
+---
+
+## 5. Configurar webhook na Meta
+
+A Meta envia mensagens recebidas para o Zenda via POST.
+
+1. App → produto **WhatsApp** → **Configuração** → seção **Webhook** → **Editar**.
+2. **URL de callback:** copie da página **Dashboard → Agente → Publicar → WhatsApp** (campo Webhook Meta). Formato: `https://<seu-backend>/webhooks/whatsapp`
+3. **Token de verificação:** valor de `META_WHATSAPP_WEBHOOK_VERIFY_TOKEN` no servidor Zenda — deve ser **idêntico** nos dois lados.
+4. Clique **Verificar e salvar**.
+5. Em **Gerenciar**, assine o campo **messages**.
+
+<Note>
+  **Produção:** configure também `META_WHATSAPP_APP_SECRET` no backend. Sem ele, o Zenda rejeita POSTs não assinados. Reinicie o backend após alterar `.env`.
+</Note>
+
+---
+
+## 6. Conectar no Zenda
+
+1. [Dashboard](https://www.zenda.ai/dashboard) → escolha o agente → **Publicar** → card **WhatsApp**.
+2. Cole **Phone Number ID** e **Access Token** → **Salvar credenciais**.
+3. Ative o interruptor do canal. Status *Número vinculado* confirma que as credenciais foram aceitas.
+
+**Embedded Signup (opcional):** se o administrador Zenda configurou `META_WHATSAPP_APP_ID` e `META_WHATSAPP_EMBEDDED_CONFIG_ID`, o botão *Ligar WhatsApp com Meta* conecta via OAuth sem colar token manualmente. O webhook e o verify token continuam obrigatórios.
+
+---
+
+## 7. Testar no Activity
+
+1. Do seu WhatsApp pessoal, envie mensagem para o número Business.
+2. Em alguns segundos a IA responde (debounce ~3 s se o cliente mandar várias msgs seguidas).
+3. No Zenda: **Activity** → conversa com tag **WhatsApp Meta**.
+4. O contato aparece com **nome** (perfil Meta) e **telefone**.
+
+---
+
+## 8. Assumir conversa (operador humano)
+
+1. Na conversa, clique **Assumir conversa** — a IA para de responder.
+2. Digite e envie — a mensagem chega no WhatsApp do cliente como **Operador**.
+3. Use **Devolver para IA** para retomar automação.
+4. Palavras como *humano* ou *atendente* podem acionar handoff automático.
+
+Veja também [Activity](/guias/activity/overview).
+
+---
+
+## Variáveis no servidor (deploy)
+
+Referência para quem faz deploy (Railway, etc.):
+
+| Variável | Onde obter |
+|----------|------------|
+| `META_WHATSAPP_WEBHOOK_VERIFY_TOKEN` | String que você define — mesma no Meta e no Zenda |
+| `META_WHATSAPP_APP_SECRET` | App → Configurações → Básico → Chave secreta do app |
+| `META_WHATSAPP_APP_ID` | App → Configurações → Básico (Embedded Signup) |
+| `META_WHATSAPP_EMBEDDED_CONFIG_ID` | Facebook Login for Business → WhatsApp Embedded Signup |
+
+---
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Webhook retorna 403 ao verificar">
+    O verify token no Meta não bate com `META_WHATSAPP_WEBHOOK_VERIFY_TOKEN` no backend, ou o backend não foi reiniciado após editar `.env`. Confira os dois lados.
+  </Accordion>
+  <Accordion title="Mensagem chega na Meta mas não aparece no Zenda">
+    Verifique assinatura do campo **messages**, se o Phone Number ID salvo corresponde ao número que recebeu a msg, e logs do backend (filtrar `[WA]`).
+  </Accordion>
+  <Accordion title="IA respondeu depois que assumi a conversa">
+    Confirme status **Aguardando** (human) no Activity. Com conversa assumida, a IA não responde inbound.
+  </Accordion>
+  <Accordion title="Só testadores conseguem enviar mensagem">
+    App Meta em modo desenvolvimento. Adicione testadores em **Funções do app → Testadores** ou publique o app.
+  </Accordion>
+  <Accordion title="Token expira e para de responder">
+    Use token de usuário do sistema (passo 4), não o token temporário do painel API.
+  </Accordion>
+</AccordionGroup>
+
+<Check>
+  **Política Zenda + Meta:** o Zenda só envia WhatsApp como resposta a mensagem do cliente (sessão iniciada pelo usuário). Sem campanhas proativas ou disparos a frio por esta integração.
+</Check>
+
+Documentação oficial da Meta: [WhatsApp Cloud API — Get Started](https://developers.facebook.com/docs/whatsapp/cloud-api/get-started)

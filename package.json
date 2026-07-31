@@ -1,0 +1,12 @@
+{
+  "name": "zenda-chat",
+  "private": true,
+  "description": "Documentação do produto Zenda (Mintlify)",
+  "scripts": {
+    "dev": "mintlify dev",
+    "broken-links": "mintlify broken-links"
+  },
+  "devDependencies": {
+    "mintlify": "^4.2.15"
+  }
+}

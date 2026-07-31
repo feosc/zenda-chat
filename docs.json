@@ -1,0 +1,84 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "Zenda",
+  "theme": "mint",
+  "colors": {
+    "primary": "#EA580C",
+    "light": "#F97316",
+    "dark": "#C2410C"
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/logo/favicon.svg",
+  "navbar": {
+    "links": [
+      {
+        "label": "Site",
+        "href": "https://www.zenda.ai"
+      },
+      {
+        "label": "Preços",
+        "href": "https://www.zenda.ai/pricing"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://www.zenda.ai/dashboard"
+    }
+  },
+  "navigation": [
+    {
+      "group": "Começar",
+      "pages": ["introduction", "primeiros-passos"]
+    },
+    {
+      "group": "Agente",
+      "pages": [
+        "guias/playground",
+        "guias/configuracoes",
+        "guias/analytics"
+      ]
+    },
+    {
+      "group": "Conhecimento",
+      "pages": ["guias/fontes/overview"]
+    },
+    {
+      "group": "Ações",
+      "pages": [
+        "guias/acoes/overview",
+        "guias/acoes/leads",
+        "guias/acoes/cta",
+        "guias/acoes/shopify"
+      ]
+    },
+    {
+      "group": "Publicar",
+      "pages": [
+        "guias/publicar/overview",
+        "guias/publicar/widget",
+        "guias/publicar/help-page",
+        "guias/publicar/whatsapp"
+      ]
+    },
+    {
+      "group": "Atendimento",
+      "pages": ["guias/activity/overview"]
+    },
+    {
+      "group": "Conta",
+      "pages": [
+        "guias/conta/workspace",
+        "guias/conta/plano-e-creditos"
+      ]
+    }
+  ],
+  "footer": {
+    "socials": {
+      "website": "https://www.zenda.ai"
+    }
+  }
+}
