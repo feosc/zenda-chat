@@ -1,13 +1,14 @@
 # zenda-chat
 
-Documentação do produto [Zenda](https://zenda-chat.vercel.app), hospedada com [Mintlify](https://mintlify.com).
+Documentação do produto [Zenda](https://zendachat.com), em [docs.zendachat.com](https://docs.zendachat.com), hospedada com [Mintlify](https://mintlify.com).
 
 ## Conteúdo
 
 Cobre apenas o que **já está no produto**:
 
-- Playground, fontes, ações (leads, CTA, Shopify)
-- Canais: widget, help page, WhatsApp Meta
+- Playground, fontes, ações (leads, CTA, Nuvemshop)
+- Canais: widget, Nuvemshop (mesmo balão), help page, WhatsApp Meta
+- Em breve no dashboard: Instagram (Publicar) e Agendamento (Ações)
 - Activity, analytics, configurações, plano e workspace
 
 ## Desenvolvimento local
@@ -23,7 +24,7 @@ Requer Node.js 18+.
 
 1. Crie repositório no GitHub e envie este projeto.
 2. Em [mintlify.com](https://mintlify.com) → **New docs** → conecte o repo.
-3. Domínio atual: `https://zenda-chat.vercel.app` (Vercel). Opcional: custom domain no Mintlify depois.
+3. Domínio público: `https://docs.zendachat.com`.
 4. Cada push na branch `main` publica automaticamente.
 
 ## Estrutura
@@ -39,10 +40,8 @@ logo/                  # logo e favicon
 ## Próximos passos
 
 - [ ] Criar repo `zenda-chat` no GitHub e fazer push
-- [ ] Conectar Mintlify ao domínio `zenda-chat.vercel.app`
 - [ ] Adicionar screenshots nos guias
-- [ ] Redirect da rota antiga `/docs/whatsapp` no app → documentação Mintlify
-- [ ] Guias para canais/ações quando saírem de "Em breve"
+- [ ] Guia de Instagram e de Agendamento quando saírem de "Em breve"
 
 ## Licença
 

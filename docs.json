@@ -16,17 +16,17 @@
     "links": [
       {
         "label": "Site",
-        "href": "https://zenda-chat.vercel.app"
+        "href": "https://zendachat.com"
       },
       {
         "label": "Preços",
-        "href": "https://zenda-chat.vercel.app/pricing"
+        "href": "https://zendachat.com/pricing"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://zenda-chat.vercel.app/dashboard"
+      "href": "https://app.zendachat.com/dashboard"
     }
   },
   "navigation": {
@@ -53,7 +53,7 @@
           "guias/acoes/overview",
           "guias/acoes/leads",
           "guias/acoes/cta",
-          "guias/acoes/shopify"
+          "guias/acoes/nuvemshop"
         ]
       },
       {
@@ -61,6 +61,7 @@
         "pages": [
           "guias/publicar/overview",
           "guias/publicar/widget",
+          "guias/publicar/nuvemshop",
           "guias/publicar/help-page",
           "guias/publicar/whatsapp"
         ]
@@ -78,9 +79,15 @@
       }
     ]
   },
+  "redirects": [
+    {
+      "source": "/guias/acoes/shopify",
+      "destination": "/guias/acoes/nuvemshop"
+    }
+  ],
   "footer": {
     "socials": {
-      "website": "https://zenda-chat.vercel.app"
+      "website": "https://zendachat.com"
     }
   }
 }
