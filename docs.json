@@ -3,9 +3,18 @@
   "name": "Zenda",
   "theme": "mint",
   "colors": {
-    "primary": "#EA580C",
-    "light": "#F97316",
-    "dark": "#C2410C"
+    "primary": "#FA4616",
+    "light": "#FA4616",
+    "dark": "#FA4616"
+  },
+  "background": {
+    "color": {
+      "light": "#FFFFFF",
+      "dark": "#000000"
+    }
+  },
+  "appearance": {
+    "default": "dark"
   },
   "logo": {
     "light": "/logo/light.svg",
