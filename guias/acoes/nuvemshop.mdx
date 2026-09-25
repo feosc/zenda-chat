@@ -1,0 +1,36 @@
+---
+title: Nuvemshop
+description: Consulte produtos e pedidos da loja na conversa.
+---
+
+A ação **Nuvemshop** deixa o agente buscar **produtos** no catálogo e consultar o **status de um pedido** pelo número.
+
+## Conectar a loja
+
+<Steps>
+  <Step title="Abrir Ações">
+    No agente, vá em **Ações** → card **Nuvemshop** → **Configurar**.
+  </Step>
+  <Step title="Autorizar">
+    Conecte a loja. O Zenda guarda o acesso com segurança — você não cola token manualmente.
+  </Step>
+  <Step title="Ligar produtos e pedidos">
+    Ative **Produtos** e **Pedidos** conforme o que o agente deve consultar.
+  </Step>
+  <Step title="Testar">
+    No Playground: *"vocês têm calça preta?"* ou *"onde está o pedido 100?"*.
+  </Step>
+</Steps>
+
+## O que o agente pode fazer
+
+| Recurso | Comportamento |
+|---------|---------------|
+| **Produtos** | Busca no catálogo da loja e mostra nome, preço e card |
+| **Pedidos** | Pede o número do pedido e devolve pagamento, envio e rastreio |
+
+Preço e estoque vêm da Nuvemshop na hora da pergunta, não da base de conhecimento.
+
+## Publicar o chat na loja
+
+Conectar a loja não coloca o balão na vitrine. Isso fica em **Publicar** → card **Nuvemshop**. O balão é o mesmo do [Chat Widget](/guias/publicar/widget). Veja [Publicar na Nuvemshop](/guias/publicar/nuvemshop).
